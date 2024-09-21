@@ -1,18 +1,6 @@
 const express = require('express');
 let app = express();
 app.use(express.json());
-const cors = require('cors');
-app.use(express.static('static'));
-app.use(
-  cors({
-    origin:
-      'https://stackblitzstartersywvgpq-yjw1--3000--e7ca9335.local-credentialless.webcontainer.io', // Replace with your frontend's domain
-    methods: 'GET,POST,PUT,DELETE',
-    credentials: true, // If you need to send cookies or other credentials
-    allowedHeaders: 'Content-Type,Authorization',
-  })
-);
-
 let users = [];
 
 let books = [];
