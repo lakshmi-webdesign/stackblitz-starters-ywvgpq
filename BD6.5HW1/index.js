@@ -7,11 +7,11 @@ let games = [];
 let tournamnets = [];
 
 function validateGame(data) {
-    if (!data.title || typeof data.title !== string) {
+    if (!data.title || typeof data.title !== "string") {
         return "Title is required and should be string"
     }
 
-    if (!data.genre || typeof data.genre !== string) {
+    if (!data.genre || typeof data.genre !== "string") {
         return "Genre is required and should be string"
     }
 
