@@ -70,4 +70,4 @@ app.post('/api/reviews', (req, res) => {
   res.status(201).json(review);
 });
 
-module.exports = { app };
+module.exports = { app, validateUser, validateBook, validateReview };
