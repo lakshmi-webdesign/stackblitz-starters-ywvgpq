@@ -20,7 +20,7 @@ function validateGame(data) {
 
 function validateTournament(data) {
     if (!data.name || typeof data.name !== "string") {
-        return "Tournamnet is required and should be string"
+        return "Name is required and should be string"
     }
 
     if (!data.gameId || typeof data.gameId !== "number") {
