@@ -4,6 +4,8 @@ app.use(express.json());
 
 let games = [];
 
+let tournamnets = [];
+
 function validateGame(data) {
     if (!data.title || typeof data.title !== string) {
         return "Title is required and should be string"
@@ -21,7 +23,7 @@ function validateTournament(data) {
         return "Tournamnet is required and should be string"
     }
 
-    if (!data.gameId || typeof data.gameId !== "NUMBER") {
+    if (!data.gameId || typeof data.gameId !== "number") {
         return "GameId is required and should be string"
     }
 
@@ -36,3 +38,14 @@ app.post("/api/games", (req, res) => {
     games.push(game);
     res.status(201).json(game);
 });
+
+app.post("/api/tournaments", (req, res) => {
+    let error = validateTournament(req.body);
+    if (error) return res.status(400).send(error);
+
+    let tournamnet = { id: tournamnets.length + 1, ...req.body };
+    tournamnets.push(tournamnet);
+    res.status(201).json(tournamnet);
+});
+
+module.exports = { app, validateGame, validateTournament }
