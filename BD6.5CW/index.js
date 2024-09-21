@@ -47,9 +47,9 @@ app.post('/api/users', (req, res) => {
   let error = validateUser(req.body);
   if (error) return res.status(400).send(error);
 
-  let user = { id: user.length + 1, ...req.body };
+  let user = { id: users.length + 1, ...req.body };
   users.push(user);
-  res.status(201).json(users);
+  res.status(201).json(user);
 });
 
 app.post('/api/books', (req, res) => {
