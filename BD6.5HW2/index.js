@@ -16,7 +16,7 @@ function validateEmployee(data) {
     return null;
 }
 
-app.post("/api/employees", (res, res) => {
+app.post("/api/employees", (req, res) => {
     let error = validateEmployee(req.body);
     if (error) return res.status(400).send(error);
 
@@ -25,4 +25,4 @@ app.post("/api/employees", (res, res) => {
     res.status(201).json(employee);
 });
 
-module.exports = { app, validateEmployee }
+module.exports = { app, validateEmployee };
