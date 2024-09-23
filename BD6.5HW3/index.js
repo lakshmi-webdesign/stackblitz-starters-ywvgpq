@@ -65,7 +65,7 @@ app.post("/authors", (req, res) => {
     let error = validateAuthor(req.body);
     if (error) return res.status(400).send(error);
 
-    let author = { id: articles.length + 1, ...req.body };
+    let author = { id: authors.length + 1, ...req.body };
     authors.push(author);
     res.status(201).json(author)
 });
