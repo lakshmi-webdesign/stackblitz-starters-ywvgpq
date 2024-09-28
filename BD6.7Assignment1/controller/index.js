@@ -35,4 +35,10 @@ function validateShow(data) {
     return null;
 }
 
-module.exports = { shows, getAllShows, getShowById, validateShow }
+function addShow(data) {
+    data.showId = shows.length + 1;
+    shows.push(data);
+    return data;
+}
+
+module.exports = { getAllShows, getShowById, addShow, validateShow }

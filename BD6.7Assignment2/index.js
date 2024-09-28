@@ -17,7 +17,7 @@ app.get("/stocks/:ticker", async (req, res) => {
 
 app.post("/trades", async (req, res) => {
     let data = req.body;
-    let error = validateTrade(data);
+    let error = await validateTrade(data);
     if (error) return res.status(400).send(error)
     let result = await addTrade(data);
 
