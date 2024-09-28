@@ -1,5 +1,6 @@
 const express = require("express");
 let app = express();
+app.use(express.json())
 let { getAllShows, getShowById, addShow, validateShow } = require("./controller/index")
 
 app.get("/shows", async (req, res) => {
