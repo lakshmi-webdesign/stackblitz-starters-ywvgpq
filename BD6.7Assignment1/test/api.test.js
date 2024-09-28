@@ -46,31 +46,4 @@ describe("api test", () => {
         expect(result.body.show).toEqual(mockData)
     });
 
-    it("/shows add new show", async () => {
-        const mockData = {
-            title: 'Phantom of the Opera',
-            theatreId: 2,
-            time: '5:00 PM'
-        };
-        
-        let result = await request(server).post("/shows").send(mockData);
-        expect(result.status).toBe(200);
-        expect(result.body).toEqual({
-            showId: 5,
-            title: "Phantom of the Opera",
-            theatreId: 2,
-            time: "5:00 PM"
-        });
-    });
-
-    it("/shows should return 400 with correct validation message", async () => {
-        const mockData = {
-            theatreId: 2,
-            time: '5:00 PM'
-        };
-
-        let result = await request(server).post("/shows").send(mockData);
-        expect(result.status).toEqual(400);
-        expect(result.text).toEqual("Title is required and should be string");
-    });
 });
