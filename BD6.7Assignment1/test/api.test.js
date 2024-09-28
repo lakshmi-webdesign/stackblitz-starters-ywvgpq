@@ -1,7 +1,7 @@
 let http = require("http");
 let request = require("supertest");
 let { app } = require('../index');
-const { getAllShows, getShowById, validateShow, addShow } = require('../controller/index')
+const { getAllShows, getShowById, validateShow } = require('../controller/index')
 let server;
 
 jest.mock('../controller/index.js', () => ({

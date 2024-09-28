@@ -35,4 +35,4 @@ function validateShow(data) {
     return null;
 }
 
-module.exports = { getAllShows, getShowById, addShow, validateShow }
+module.exports = { shows, getAllShows, getShowById, validateShow }
