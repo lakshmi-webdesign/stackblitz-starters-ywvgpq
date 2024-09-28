@@ -29,8 +29,8 @@ function validateTrade(data) {
         return "StockId is required and should be number"
     }
 
-    if (!data.quantity || typeof data.quantity !== "string") {
-        return "Quantity is required and should be string"
+    if (!data.quantity || typeof data.quantity !== "number") {
+        return "Quantity is required and should be number"
     }
 
     if (!data.tradeType || typeof data.tradeType !== "string") {
