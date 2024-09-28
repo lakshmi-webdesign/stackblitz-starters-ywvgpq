@@ -65,3 +65,35 @@ describe("api test", () => {
         expect(result.body.movie).toEqual(mockData)
     })
 });
+
+describe("validate functions", () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+    it('getAllMovies should return all movies', () => {
+        const mockData = [
+            {
+                movieId: 1,
+                title: 'Inception',
+                genre: 'Sci-Fi',
+                director: 'Christopher Nolan'
+            },
+            {
+                movieId: 2,
+                title: 'The Shawshank Redemption',
+                genre: 'Drama',
+                director: 'Frank Darabont'
+            },
+            {
+                movieId: 3,
+                title: 'The Godfather',
+                genre: 'Crime',
+                director: 'Francis Ford Coppola'
+            }
+        ];
+
+        let result = getAllMovies();
+        expect(result).toEqual(mockData);
+        expect(result.length).toBe(3)
+    })
+})
