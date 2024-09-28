@@ -19,7 +19,7 @@ app.post("/shows", (req, res) => {
     let error = validateShow(req.body);
     if (error) return res.status(400).send(error);
 
-    let show = { showId: shows.length + 1, ...data }
+    let show = { showId: shows.length + 1, ...req.body }
     shows.push(show);
     res.status(200).json(show);
 });
