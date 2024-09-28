@@ -56,14 +56,12 @@ describe("api test", () => {
 
     it("/employees/details/:id should return employee by id", async () => {
         const mockData = {
-            employee: {
-                employeeId: 1,
-                name: 'Rahul Sharma',
-                email: 'rahul.sharma@example.com',
-                departmentId: 1,
-                roleId: 1,
-            }
-        };
+            employeeId: 1,
+            name: 'Rahul Sharma',
+            email: 'rahul.sharma@example.com',
+            departmentId: 1,
+            roleId: 1,
+        }
 
         getEmployeeById.mockReturnValue(mockData)
         let result = await request(server).get("/employees/details/1");
