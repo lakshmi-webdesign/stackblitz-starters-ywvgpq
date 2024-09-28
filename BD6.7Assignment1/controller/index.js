@@ -19,12 +19,6 @@ function getShowById(id) {
     return shows.find((obj) => obj.showId === id)
 }
 
-function addShow(data) {
-    let show = { showId: shows.length + 1, ...data }
-    shows.push(show);
-    return show;
-}
-
 function validateShow(data) {
     if (!data.title || typeof data.title !== "string") {
         return "Title is required and should be string"

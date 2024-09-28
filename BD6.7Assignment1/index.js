@@ -1,7 +1,7 @@
 const express = require("express");
 let app = express();
 app.use(express.json())
-let { getAllShows, getShowById, addShow, validateShow } = require("./controller/index")
+let { shows, getAllShows, getShowById, validateShow } = require("./controller/index")
 
 app.get("/shows", async (req, res) => {
     let result = await getAllShows();
@@ -15,13 +15,13 @@ app.get("/shows/:id", async (req, res) => {
     res.status(200).json({ show: result });
 });
 
-app.post("/shows", async (req, res) => {
-    let data = req.body;
-    let error = validateShow(data);
+app.post("/shows", (req, res) => {
+    let error = validateShow(req.body);
     if (error) return res.status(400).send(error);
 
-    let result = await addShow(data);
-    res.status(200).json(result)
+    let show = { showId: shows.length + 1, ...data }
+    shows.push(show);
+    res.status(200).json(show);
 });
 
 module.exports = { app }
